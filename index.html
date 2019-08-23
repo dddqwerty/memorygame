@@ -1,0 +1,516 @@
+<html>
+
+<head>
+    <title>
+        PLAY
+
+    </title>
+
+</head>
+<header>
+    <style>
+        body {
+
+            margin: 0;
+        }
+
+        .container {
+
+            width: 100vw;
+
+            height: 100vh;
+
+            background-color: whitesmoke;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .game {
+
+
+
+            box-shadow: 0px 0px 100px 1px #fbc2eb;
+            width: 800px;
+
+            height: 500px;
+
+            background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+
+            display: flex;
+
+            justify-content: space-evenly;
+
+            align-items: center;
+
+            position: relative;
+
+            border-radius: 20%;
+
+
+
+        }
+
+        .block:hover {
+
+            /* box-shadow: 0px 0px 100px 1px #fbc2eb; */
+        }
+
+        .block {
+
+            cursor: -webkit-grab;
+            cursor: grab;
+            transition: transform .1s;
+
+            height: 80px;
+
+            width: 80px;
+
+            background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+
+            box-shadow: 3px 6px 2px 3px #4481eb;
+
+            border-radius: 50%;
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .color1 {
+
+
+            box-shadow: 3px 6px 2px 3px #00cdac;
+            background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+        }
+
+        .color2 {
+            box-shadow: 3px 6px 2px 3px #9b23ea;
+            background-image: linear-gradient(to top, #5f72bd 0%, #9b23ea 100%);
+        }
+
+        .color3 {
+            box-shadow: 3px 6px 2px 3px #f83600;
+            background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+        }
+
+        .block1 {
+
+            position: absolute;
+
+            background-color: white;
+
+            width: 300px;
+
+            height: 100px;
+
+            top: 330px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+            border-radius: 30%;
+        }
+
+        .start {
+            cursor: -webkit-grab;
+            cursor: grab;
+
+            box-shadow: 2px 4px 5px 3px #4facfe;
+
+            background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+
+            border-radius: 30%;
+            width: 300px;
+
+            height: 100px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+        #start {
+
+            color: #330867;
+
+            opacity: 0.8;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+        }
+
+        .createdby {
+            cursor: -webkit-grab;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+            box-shadow: 2px 4px 5px 3px #ff0844;
+            left: 580px;
+            top: 370px;
+        }
+
+        .tovch {
+
+            position: absolute;
+            background-image: transparent;
+            width: 500px;
+            height: 100px;
+            top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            margin-left: 5px;
+            margin-right: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+
+
+        }
+    </style>
+
+
+
+</header>
+
+<body>
+
+    <div class="container">
+
+        <div class="game">
+
+            <div class="block" id="0" onclick="clicked(this.id)">
+
+            </div>
+            <div class="block color1" id="1" onclick="clicked(this.id)">
+
+            </div>
+            <div class="block color2" id="2" onclick="clicked(this.id)">
+
+            </div>
+            <div class="block color3" id="3" onclick="clicked(this.id)">
+
+            </div>
+            <div class="block1">
+                <div class="start" id="start1" onclick="start()">
+                    <h1 id="start"><i>START</i></h1>
+                </div>
+            </div>
+            <div class="createdby" id="asd" onclick="qwerty()">
+
+            </div>
+            <div class="tovch" id="tovch"></div>
+
+
+        </div>
+    </div>
+</body>
+<script>
+
+    function qwerty() {
+
+        alert("created by ddqwerty");
+
+    }
+
+    async function start() {
+
+        document.getElementById("start1").style = "box-shadow: 0px 0px 0px 0px #fbc2eb;";
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(), 150)
+        });
+        let result = await promise;
+        document.getElementById("start1").style = "box-shadow: 2px 4px 5px 3px #4facfe;";
+
+
+        document.getElementById("start").innerHTML = "<i>RE-START</i>";
+
+        number = [];
+
+        array = [];
+
+        arraypush();
+
+        a();
+
+    }
+    let array = [];
+
+    function arraypush() {
+
+        array.push(Math.floor(Math.random() * 4));
+
+    }
+
+    const a = async () => {
+
+
+        let cricle;
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(), 700)
+        });
+
+        let result = await promise;
+
+        document.getElementById("tovch").innerHTML = '';
+
+        for (let i = 0; i < array.length; i++) {
+
+            let promise2 = new Promise((resolve, reject) => {
+                setTimeout(() => resolve(), 150)
+            });
+
+            let result2 = await promise2;
+
+            cricle = document.createElement("div");
+
+            cricle.className = "circle";
+
+            if (array[i] == 0) {
+
+                cricle.style.backgroundColor = "#4481eb";
+
+            }
+            if (array[i] == 1) {
+
+                cricle.style.backgroundColor = "#00cdac";
+
+            }
+            if (array[i] == 2) {
+
+                cricle.style.backgroundColor = "#9b23ea";
+
+            }
+            if (array[i] == 3) {
+
+                cricle.style.backgroundColor = "#f83600";
+
+            }
+
+            document.getElementById("tovch").appendChild(cricle);
+
+            document.getElementsByClassName("block")[array[i]].style = "box-shadow: 0px 0px 0px 0px #fbc2eb;";
+
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve(), 200)
+            });
+
+            let result = await promise;
+
+
+            if (array[i] == 0) {
+
+                document.getElementsByClassName("block")[array[i]].style = "box-shadow: 3px 6px 2px 3px #4481eb;";
+
+            }
+            if (array[i] == 1) {
+
+                document.getElementsByClassName("block")[array[i]].style = "box-shadow: 3px 6px 2px 3px #00cdac;";
+
+            }
+            if (array[i] == 2) {
+
+                document.getElementsByClassName("block")[array[i]].style = "box-shadow: 3px 6px 2px 3px #9b23ea;";
+
+            }
+            if (array[i] == 3) {
+
+                document.getElementsByClassName("block")[array[i]].style = "box-shadow: 3px 6px 2px 3px #f83600;";
+
+            }
+
+            let promise1 = new Promise((resolve, reject) => {
+                setTimeout(() => resolve(), 200)
+            });
+
+            let result1 = await promise1;
+        }
+
+
+
+
+        let promise1 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(), 300)
+        });
+
+        let result1 = await promise1;
+
+        document.getElementById("tovch").innerHTML = '';
+
+    }
+
+    let number = [];
+    let daralt = 0;
+
+    async function clicked(id) {
+
+        cricle = document.createElement("div");
+
+        cricle.className = "circle";
+
+        if (id == 0) {
+
+            cricle.style.backgroundColor = "#4481eb";
+
+        }
+        if (id == 1) {
+
+            cricle.style.backgroundColor = "#00cdac";
+
+        }
+        if (id == 2) {
+
+            cricle.style.backgroundColor = "#9b23ea";
+
+        }
+        if (id == 3) {
+
+            cricle.style.backgroundColor = "#f83600";
+
+        }
+
+        document.getElementById("tovch").appendChild(cricle);
+
+
+        number.push(Number(id));
+
+        document.getElementsByClassName("block")[id].style = "box-shadow: 0px 0px 0px 1px #fbc2eb;";
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(), 150)
+        });
+        let result = await promise;
+
+        if (Number(id) == 0) {
+
+            document.getElementsByClassName("block")[id].style = "box-shadow: 3px 6px 2px 3px #4481eb;";
+
+        }
+        if (Number(id) == 1) {
+
+            document.getElementsByClassName("block")[id].style = "box-shadow: 3px 6px 2px 3px #00cdac;";
+
+        }
+        if (Number(id) == 2) {
+
+            document.getElementsByClassName("block")[id].style = "box-shadow: 3px 6px 2px 3px #9b23ea;";
+
+        }
+        if (Number(id) == 3) {
+
+            document.getElementsByClassName("block")[id].style = "box-shadow: 3px 6px 2px 3px #f83600;;";
+
+        }
+
+        if (daralt < array.length) {
+
+            if (number[daralt] == array[daralt]) {
+
+                daralt++;
+
+            } else {
+                daralt = 0;
+                alert("GAME OVER");
+
+                document.getElementById("tovch").innerHTML = '';
+                document.getElementById("start").innerHTML = "<i>PLAY AGAIN</i>";
+                array = [];
+                return;
+            }
+            if (daralt - 1 == array.length - 1) {
+
+                daralt = 0;
+                arraypush();
+                number = [];
+                a();
+
+            }
+        }
+
+        // if (number.length == array.length) {
+
+        //     for (let i = 0; i < array.length; i++) {
+
+        //         if (number[i] != array[i]) {
+
+        //             equal = false;
+        //         }
+
+
+        //     }
+        //     if (equal) {
+
+        //         arraypush();
+        //         number = [];
+
+        //         a();
+
+        //     } else {
+
+        //         alert("GAME OVER");
+        //         document.getElementById("start").innerHTML = "PLAY AGAIN";
+        //         array = [];
+        //     }
+
+        // }
+
+    }
+    // async function anivch() {
+
+
+    //     for (let i = 0; i < 4; i++) {
+    //         document.getElementsByClassName("block")[i].style.opacity = "1";
+    //     }
+    // }
+
+    // async function a() {
+    //     console.log("ehelj bna")
+    //     await setTimeout(() => {
+    //         alert("hellsdao");
+    //     }, 1000);
+    //     console.log("Ajilla");
+    // }
+    // a();
+
+
+    // const a = async () =>  {
+
+    //     for (let a = 0; a < 4; a++) {
+    //     await setTimeout(() => { Document.getElementsByClassName("block")[a].style.opacity = "0.2" }, 3000);
+    //     Document.getElementsByClassName("block")[a].style.opacity = "1"; 
+    // }
+    // }
+    // a;
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
